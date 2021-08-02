@@ -13,6 +13,11 @@ public class User {
   public User() {
   }
 
+  public User(String login, String password) {
+    this.login = login;
+    this.password = password;
+  }
+
   public User(UUID id, String login, String password) {
     this.id = id;
     this.login = login;
@@ -21,7 +26,7 @@ public class User {
 
   public User(JsonObject jsonObject) {
     if (jsonObject.containsKey("_id"))
-      this.id = UUID.fromString(jsonObject.getString("id"));
+      this.id = UUID.fromString(jsonObject.getString("_id"));
     this.login = jsonObject.getString("login");
     this.password = jsonObject.getString("password");
   }
