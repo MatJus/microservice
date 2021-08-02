@@ -13,7 +13,7 @@ import pl.jusiak.backendmicro.verticles.MainVerticle;
 
 @RunWith(VertxUnitRunner.class)
 public class TestMainVerticle {
-
+/*
   @Rule
   public RunTestOnContext rule = new RunTestOnContext();
 
@@ -22,7 +22,7 @@ public class TestMainVerticle {
     Vertx vertx = rule.vertx();
     vertx.deployVerticle(new MainVerticle(), testContext.asyncAssertSuccess());
   }
-
+*/
   @Test
   public void verticle_deployed(TestContext testContext) throws Throwable {
     Async async = testContext.async();
