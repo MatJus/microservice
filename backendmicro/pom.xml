@@ -18,7 +18,7 @@
 
     <vertx.version>4.1.2</vertx.version>
 
-    <main.verticle>pl.jusiak.backendmicro.MainVerticle</main.verticle>
+    <main.verticle>pl.jusiak.backendmicro.verticles.MainVerticle</main.verticle>
     <launcher.class>io.vertx.core.Launcher</launcher.class>
   </properties>
 
