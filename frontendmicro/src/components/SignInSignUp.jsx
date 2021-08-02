@@ -15,12 +15,12 @@ class SignInSignUp extends Component {
                                 <div className="login-form">
                                     <div className="sign-in-htm">
                                         <div className="group">
-                                            <label htmlFor="user" className="label">Username</label>
-                                            <input id="user" type="text" className="input"/>
+                                            <label htmlFor="user1" className="label">Username</label>
+                                            <input id="user1" type="text" className="input"/>
                                         </div>
                                         <div className="group">
-                                            <label htmlFor="pass" className="label">Password</label>
-                                            <input id="pass" type="password" className="input" data-type="password"/>
+                                            <label htmlFor="pass1" className="label">Password</label>
+                                            <input id="pass1" type="password" className="input" data-type="password"/>
                                         </div>
                                         <div className="group">
                                             <input id="check" type="checkbox" className="check"/>
@@ -36,16 +36,16 @@ class SignInSignUp extends Component {
                                     </div>
                                     <div className="sign-up-htm">
                                         <div className="group">
-                                            <label htmlFor="user" className="label">Username</label>
-                                            <input id="user" type="text" className="input"/>
+                                            <label htmlFor="user2" className="label">Username</label>
+                                            <input id="user2" type="text" className="input"/>
                                         </div>
                                         <div className="group">
-                                            <label htmlFor="pass" className="label">Password</label>
-                                            <input id="pass" type="password" className="input" data-type="password"/>
+                                            <label htmlFor="pass2" className="label">Password</label>
+                                            <input id="pass2" type="password" className="input" data-type="password"/>
                                         </div>
                                         <div className="group">
-                                            <label htmlFor="pass" className="label">Repeat Password</label>
-                                            <input id="pass" type="password" className="input" data-type="password"/>
+                                            <label htmlFor="pass3" className="label">Repeat Password</label>
+                                            <input id="pass3" type="password" className="input" data-type="password"/>
                                         </div>
                                         {/*<div className="group">*/}
                                         {/*    <label htmlFor="pass" className="label">Email Address</label>*/}
