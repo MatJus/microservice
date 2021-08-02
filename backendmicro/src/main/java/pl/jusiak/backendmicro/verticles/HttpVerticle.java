@@ -12,6 +12,7 @@ import io.vertx.ext.auth.jwt.JWTAuthOptions;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
+import io.vertx.ext.web.handler.CorsHandler;
 import io.vertx.ext.web.handler.JWTAuthHandler;
 import pl.jusiak.backendmicro.model.User;
 
@@ -28,6 +29,7 @@ public class HttpVerticle extends AbstractVerticle {
       .setPassword("secret")));
 
     Router router = Router.router(vertx);
+    router.route().handler(CorsHandler.create("http://localhost:3000"));
     router.get("/")
       .handler(ctx -> {
         ctx.response()
