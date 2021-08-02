@@ -77,7 +77,7 @@ public class ItemDAV extends AbstractVerticle {
 
     JsonObject query = new JsonObject()
       .put(criteria, value);
-    System.out.println("Query: " + query);
+    //System.out.println("Query: " + query);
 
     mongoClient.find("items", query, ar -> {
       if (ar.succeeded()) {

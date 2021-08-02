@@ -96,7 +96,7 @@ public class HttpVerticle extends AbstractVerticle {
           .putHeader("content-type", "application/json; charset=utf-8")
           .end(Json.encodePrettily(new JsonObject().put("access_token", token)));
       } else {
-        System.out.println("User not found");
+        //System.out.println("User not found");
         routingContext.response()
           .setStatusCode(500)
           .putHeader("content-type", "text/plain; charset=utf-8")
@@ -113,7 +113,7 @@ public class HttpVerticle extends AbstractVerticle {
       .put("action", "register-user")
       .put("user", userLogPassJson);
 
-    System.out.println(message.getJsonObject("user"));
+    //System.out.println(message.getJsonObject("user"));
 
     vertx.eventBus().request("user-actions", message, ar -> {
       if (ar.succeeded()) {

@@ -60,7 +60,7 @@ public class UserDAV extends AbstractVerticle {
 
     JsonObject authInfo = message.body().getJsonObject("authinfo");
 
-    System.out.println(authInfo);
+    //System.out.println(authInfo);
 
     mongoAuthenticationProvider.authenticate(authInfo, ar -> {
       if (ar.succeeded()) {
@@ -84,7 +84,7 @@ public class UserDAV extends AbstractVerticle {
 
     JsonObject query = new JsonObject()
       .put(criteria, value);
-    System.out.println("Query: " + query);
+    //System.out.println("Query: " + query);
 
     mongoClient.find("users", query, ar -> {
       if (ar.succeeded()) {
