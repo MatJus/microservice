@@ -1,0 +1,8 @@
+body, html {
+}
+.HomePage {
+    background: #6a1a21 url("./../img/preview_cut.jpg") no-repeat fixed center;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+}
