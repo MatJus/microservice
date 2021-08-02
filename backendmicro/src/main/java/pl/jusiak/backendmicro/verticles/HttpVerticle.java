@@ -86,7 +86,6 @@ public class HttpVerticle extends AbstractVerticle {
     vertx.eventBus().request("user-actions", message, ar -> {
       if (ar.succeeded()) {
         JsonObject returnedUserJson = ((JsonObject) ar.result().body()).getJsonObject("user");
-        //System.out.println(returnedUserJson);
         final User returnedUser = new User(returnedUserJson);
         String token = jwtAuth.generateToken(new JsonObject()
           .put("login", returnedUser.getLogin())
@@ -96,7 +95,7 @@ public class HttpVerticle extends AbstractVerticle {
           .putHeader("content-type", "application/json; charset=utf-8")
           .end(Json.encodePrettily(new JsonObject().put("access_token", token)));
       } else {
-        //System.out.println("User not found");
+
         routingContext.response()
           .setStatusCode(500)
           .putHeader("content-type", "text/plain; charset=utf-8")
@@ -112,8 +111,6 @@ public class HttpVerticle extends AbstractVerticle {
     JsonObject message = new JsonObject()
       .put("action", "register-user")
       .put("user", userLogPassJson);
-
-    //System.out.println(message.getJsonObject("user"));
 
     vertx.eventBus().request("user-actions", message, ar -> {
       if (ar.succeeded()) {
