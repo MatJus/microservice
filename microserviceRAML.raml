@@ -1,0 +1,126 @@
+#%RAML 1.0
+title: Microservice
+baseUri: http://localhost:8888
+version: 1.0
+
+uses:
+  assets: assets.lib.raml
+
+annotationTypes:
+  monitoringInterval:
+    type: integer
+
+/login:
+  displayName: Login
+  post:
+    description: Login user.
+    queryParameters:
+      userLogin:
+        type: string
+        description: use with password to login
+      userPassword:
+        type: string
+        description: use with login to login
+    responses:
+      200:
+        body:
+          application/json; charset=utf8:
+            example:
+              "access token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6Ik1BVCIsIl9pZCI6ImQ4ZmJjY2ZmLTM3YmUtNDIyNi1iODE3LWM0NmYwYWQxN2U5YiIsImlhdCI6MTYyNzk1MzM0Nn0"
+      500:
+        body:
+          text/plain; charset=utf8:
+            example:
+              "Wiadomość zwrotna: Authenticate error:"
+/register:
+  displayName: Registration
+  post:
+    description: Register new user.
+    queryParameters:
+      userLogin:
+        type: string
+        description: use with pass to register new user
+      userPassword:
+        type: string
+        description: use with login to register new user
+    responses:
+      201:
+        body:
+          text/plain; charset=utf8:
+            example:
+              "User created!"
+      500:
+        body:
+          text/plain; charset=utf8:
+            example:
+              "Wiadomość zwrotna: User Inserting error:"
+/items:
+  post:
+    description: Add new item do db.
+    queryParameters:
+      name:
+        type: string
+        description: use to name item
+        example: "Item 1"
+      access_token:
+        description: The access token provided by the authentication application (added in headers)
+        example: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6Ik1BVCIsIl9pZCI6ImQ4ZmJjY2ZmLTM3YmUtNDIyNi1iODE3LWM0NmYwYWQxN2U5YiIsImlhdCI6MTYyNzk1MzM0Nn0"
+    responses:
+      201:
+        body:
+          text/plain; charset=utf8:
+            example:
+              "Item added!"
+      401:
+      
+      500:
+        body:
+          text/plain; charset=utf8:
+            example:
+              "Wiadomość zwrotna: Insert failure: "
+  displayName: Items
+  get:
+    description: Lists all items of a specific user.
+    queryParameters:
+      _id:
+        type: string
+        description: use to query all items of a user
+    responses:
+      200:
+        body:
+          application/json; charset=utf8:
+            type: 
+              item: {
+                "type": "object",
+                "_id": "http://jsonschema.net",
+                "required": true,
+                "owner": "http://jsonschema.net",
+                "required": true,
+                "name": "string"
+              }
+            example: 
+              "items": [
+                {
+                "_id": "a9ea543a-556e-4b53-8ee0-dea42acde68d",
+                "owner": "d8fbccff-37be-4226-b817-c46f0ad17e9b",
+                "name": "item1"
+                },
+                {
+                "_id": "95dfb367-e236-44b9-9c06-c520b4fb27f0",
+                "owner": "d8fbccff-37be-4226-b817-c46f0ad17e9b",
+                "name": "item2"
+                },
+                {
+                "_id": "b5393c6c-9137-4571-810e-18445e89fe72",
+                "owner": "d8fbccff-37be-4226-b817-c46f0ad17e9b",
+                "name": "item3"
+                }
+              ]
+      401:
+
+      500:
+        body:
+          text/plain; charset=utf8:
+            example:
+              "Wiadomość zwrotna: Getting items error: "
+            
