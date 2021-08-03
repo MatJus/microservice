@@ -16,6 +16,15 @@ To run application:
 ```
 ./mvnw clean compile exec:java
 ```
+###Example data
+login or register JSON:
+```json 
+user: { login: <username>, password: <password> }
+```
+new item JSON:
+```json 
+item: { name: <item name> }
+```
 ## Frontend - React
 To build application:
 ```
