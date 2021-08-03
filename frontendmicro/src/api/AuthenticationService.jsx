@@ -1,4 +1,25 @@
+import axios from "axios";
+
 class AuthenticationService {
+
+    async executeSignIn(login, pass) {
+        return await axios.post("http://localhost:8888/login", {user: {login: login, password: pass}})
+    }
+
+    async executeSignUp(login, pass) {
+        return await axios.post("http://localhost:8888/register", {user: {login: login, password: pass}})
+    }
+
+    async executeCreateNewItem(name) {
+        const options = {headers: {Authorization: "Bearer " + sessionStorage.getItem("token")}}
+        return await axios.post("http://localhost:8888/items", {item: {name: name}}, options)
+    }
+
+    async executeGetAllItems() {
+        const options = {headers: {Authorization: "Bearer " + sessionStorage.getItem("token")}}
+        return await axios.get("http://localhost:8888/items", options)
+    }
+
     successfulLogin(token) {
         sessionStorage.setItem('token', token);
     }
@@ -9,11 +30,12 @@ class AuthenticationService {
 
     isUserLoggedIn() {
         let token = sessionStorage.getItem('token');
-        if(token === null)
-            return false
+        if(token === null) {
+            return false;
+        }
         return true;
     }
 
 }
 
-export default AuthenticationService;
+export default new AuthenticationService();

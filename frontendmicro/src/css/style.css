@@ -1,8 +1,34 @@
-.bg {
+.bg{
     background: #6a1a21 url("./../img/preview_cut.jpg") no-repeat fixed center;
     height: 100vh;
     width: 100%;
     background-size: cover;
+}
+
+.ItemComponent > table{
+    background: #6a1a21;
+}
+
+.row{;
+    --bs-gutter-x: 0;
+}
+
+#itemNameInput {
+    margin: 20px 20px;
+    width: 500px;
+    border:none;
+    padding:15px 20px;
+    border-radius:20px;
+    background:rgba(255,255,255,.8);
+}
+
+#btnAddItem {
+    margin: 20px 20px 40px 20px;
+    width: 500px;
+    border:none;
+    padding:15px 20px;
+    border-radius:20px;
+    background:#1161ee;
 }
 
 body{
