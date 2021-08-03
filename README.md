@@ -16,14 +16,18 @@ To run application:
 ```
 ./mvnw clean compile exec:java
 ```
-###Example data
+### Example data
 login or register JSON:
-```json 
+```json5
 user: { login: <username>, password: <password> }
+        
+user: { login: "Mateusz", password: "12345" }
 ```
 new item JSON:
-```json 
-item: { name: <item name> }
+```json5
+item: { name: <item_name> }
+        
+item: { name: "Item1" }
 ```
 ## Frontend - React
 To build application:
