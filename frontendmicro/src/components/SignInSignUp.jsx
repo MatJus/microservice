@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import AuthenticationService from "./../api/AuthenticationService";
+import Cookies from "js-cookie"
 
 class SignInSignUp extends Component {
     constructor() {
@@ -77,6 +78,7 @@ class SignInSignUp extends Component {
     signIn() {
         var login = document.getElementById("userSignIn").value;
         var pass = document.getElementById("passSignIn").value;
+        var check = document.getElementById("check").checked;
 
         if (login != null && pass != null)
             if (login !== "" && pass !== "")
@@ -84,6 +86,9 @@ class SignInSignUp extends Component {
                     .then(response => {
                         AuthenticationService.successfulLogin(response.data.access_token);
                         console.log(response.data.access_token);
+                        if (check) {
+                            Cookies.set("token", response.data.access_token, {expires: 7})
+                        }
                         this.props.history.push("/items");
                     })
                     .catch(err => console.log(err.data));

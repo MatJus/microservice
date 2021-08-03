@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie"
 
 class AuthenticationService {
 
@@ -26,6 +27,7 @@ class AuthenticationService {
 
     logout() {
         sessionStorage.removeItem('token');
+        Cookies.remove("token")
     }
 
     isUserLoggedIn() {
